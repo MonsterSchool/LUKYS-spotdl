@@ -11,3 +11,12 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 ## Screenshots
 <img src="img/01.jpg">
 <img src="img/02.jpg">
+
+## How to use
+1. Download python
+2. Download spotdl
+3. Download FFmpeg
+4. Download this (LUKYS-spotdl)
+
+Start with Downloading a new Playlist to a specified folder. You need to add the cookies.txt-File from YouTube-Music!
+From then you can synchronize your downloaded playlists (for example if you've added new songs to the spotify-playlist).
