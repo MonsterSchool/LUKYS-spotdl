@@ -13,6 +13,7 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 ## Screenshots
 <img src="img/01.jpg">
 <img src="img/02.jpg">
+<img src="img/03.jpg">
 
 ## How to use
 1. Download python
