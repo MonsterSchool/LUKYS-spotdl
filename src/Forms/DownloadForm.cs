@@ -13,7 +13,6 @@ namespace lukys_spotdl.Forms
         private string folderPath = "";
 
         //--Class
-
         public DownloadForm()
         {
             InitializeComponent();
@@ -72,7 +71,7 @@ namespace lukys_spotdl.Forms
         {
             if (cookieFilePath == "" | spotifyUrl == "" | name == "" | folderPath == "")
             {
-                MessageBox.Show("Nicht alle Textfelder sind ausgefüllt. Fülle alle Felder aus, damit der Download gestartet werden kann.", "Informationen fehlen!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Not all text fields are filled in. Fill in all fields so that the download can be started.", "Information is missing!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -88,7 +87,7 @@ namespace lukys_spotdl.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Diese Playlist wurde bereits heruntergeladen. Schaue im Sync-Tab, ob du die Playlist aktualisieren kannst.", "Playlist bereits vorhanden", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("This playlist has already been downloaded. Check the Sync tab to see if you can update the playlist.", "Playlist already available", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -172,12 +171,13 @@ namespace lukys_spotdl.Forms
                     }
                     catch (Exception eX)
                     {
-                        MessageBox.Show("Es gab ein Fehler die Config-Datei zu schreiben...\r" + eX.Message, "Fehler beim Schreiben der Confi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("There was an error writing the config file...\r" + eX.Message, "Error writing the Config!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
+                //--Create a new Config-File
                 PlaylistManager newList = new PlaylistManager();
                 newList.playlist_list.Add(playlist);
 

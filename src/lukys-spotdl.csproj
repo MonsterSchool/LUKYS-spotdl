@@ -14,8 +14,8 @@
     <Title>LUKYS - spotdl</Title>
     <Copyright>MIT</Copyright>
     <PackageIcon>spotify.png</PackageIcon>
-    <AssemblyVersion>03.20.24.3</AssemblyVersion>
-    <FileVersion>03.20.24.3</FileVersion>
+    <AssemblyVersion>03.20.24.4</AssemblyVersion>
+    <FileVersion>03.20.24.4</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

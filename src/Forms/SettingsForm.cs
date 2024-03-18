@@ -18,22 +18,40 @@ namespace lukys_spotdl.Forms
 
         private void btnSetConfigPath_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
+            using (OpenFileDialog fbD = new OpenFileDialog())
             {
-                DialogResult result = fbd.ShowDialog();
+                fbD.Filter = "json files (*.json)|*.json";
+                fbD.RestoreDirectory = true;
 
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                if (fbD.ShowDialog() == DialogResult.OK)
                 {
-                    configPath = fbd.SelectedPath + @"\config.json";
+                    configPath = fbD.FileName;
                     txbConfigPath.Text = configPath;
 
                     Properties.Settings.Default.configPath = configPath;
-                    Properties.Settings.Default.Save();
                 }
+                else
+                {
+                    txbConfigPath.Text = "no config selected!";
+                    Properties.Settings.Default.configPath = null;
+                }
+
+                Properties.Settings.Default.Save();
             }
         }
 
         private void btnValidateConfig_Click(object sender, EventArgs e)
+        {
+            validateConfig();
+        }
+
+        private void btnUpdateSpotdl_Click(object sender, EventArgs e)
+        {
+            startCommandPrompt("pip install spotdl --upgrade");
+        }
+
+        //--Misc Methods
+        private void validateConfig()
         {
             if (File.Exists(Properties.Settings.Default.configPath))
             {
@@ -43,25 +61,19 @@ namespace lukys_spotdl.Forms
                 try
                 {
                     JsonConvert.DeserializeObject<PlaylistManager>(fileContent);
-                    MessageBox.Show("Die Konfiguration konnte erfolgreich und ohne Fehler eingelesen werden.", "Prüfen der Konfiguration erfolgreich!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("The configuration was read in successfully without errors.", "Configuration check successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception eX)
                 {
-                    MessageBox.Show("Beim Prüfen der Konfiguration ist ein Fehler aufgetreten.\r" + eX.Message, "Prüfen der Konfiguration fehlgeschlagen!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred while checking the configuration.\r" + eX.Message, "Configuration check failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Am angegebenen Pfad konnte keine Konfiguration gefunden werden. Durch den Download einer Playlist wird automatisch eine Konfiguration erzeugt.", "Die Konfigurationsdatei konnte nicht gefunden werden!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No configuration could be found at the specified path. Downloading a playlist automatically creates a configuration.", "The configuration file could not be found!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void btnUpdateSpotdl_Click(object sender, EventArgs e)
-        {
-            startCommandPrompt("pip install spotdl --upgrade");
-        }
-
-        //--Misc Methods
         private void updateConfigPath()
         {
             configPath = Properties.Settings.Default.configPath;

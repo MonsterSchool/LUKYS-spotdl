@@ -18,10 +18,14 @@ namespace lukys_spotdl.Forms
         public SynchronizeForm()
         {
             InitializeComponent();
+
+            //--Try to read the config
+            loadPlaylistsFromConfig();
         }
 
         private void playlistSelect_SelectedItemChanged(object sender, EventArgs e)
         {
+            //--Get the current selected Playlist matching to the index from the config-file
             foreach (Playlist item in list.playlist_list)
             {
                 if (UpDownPlaylist.SelectedItem.ToString().StartsWith(item.index + ". "))
@@ -38,7 +42,7 @@ namespace lukys_spotdl.Forms
 
         private void btnRefreshList_Click(object sender, EventArgs e)
         {
-            checkConfigFile();
+            readPlaylistsFromConfig();
         }
 
         private void btnCookies_Click(object sender, EventArgs e)
@@ -60,17 +64,20 @@ namespace lukys_spotdl.Forms
         {
             if (cookieFilePath == "" | spotifyUrl == "" | name == "" | folderPath == "")
             {
-                MessageBox.Show("Nicht alle Textfelder sind ausgefüllt. Fülle alle Felder aus, damit der Download gestartet werden kann.", "Informationen fehlen!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Not all text fields are filled in. Fill in all fields so that the sync can be started.", "Information is missing!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Thread bgThread = new Thread(() => startCommandPrompt());
+                Thread bgThread = new Thread(() => executeSyncCommand());
                 bgThread.Start();
             }
         }
 
         //--Misc Methods
-        private void checkConfigFile()
+        /// <summary>
+        /// This Method is used when initializing the form to load (if avilable) the playlists from the config-file.
+        /// </summary>
+        private void loadPlaylistsFromConfig()
         {
             //--Check if config-File exsists
             if (File.Exists(Properties.Settings.Default.configPath))
@@ -80,8 +87,41 @@ namespace lukys_spotdl.Forms
 
                 try
                 {
+                    //--Deserialize the config
                     list = JsonConvert.DeserializeObject<PlaylistManager>(fileContent);
 
+                    //--Add each Playlist from the Config to the DomainUpDown
+                    foreach (Playlist playlist in list.playlist_list)
+                    {
+                        UpDownPlaylist.Items.Add(playlist.index + ". " + playlist.playlistName + " : " + playlist.creationDate.ToShortDateString());
+                    }
+
+                    UpDownPlaylist.DownButton();
+                }
+                catch (Exception) { }
+            }
+        }
+
+        /// <summary>
+        /// This Method trys to read the Playlists from the Config-file if the user forces a new Read-In.
+        /// </summary>
+        private void readPlaylistsFromConfig()
+        {
+            //--Check if config-File exsists
+            if (File.Exists(Properties.Settings.Default.configPath))
+            {
+                //--Read config-File
+                string fileContent = File.ReadAllText(Properties.Settings.Default.configPath);
+
+                try
+                {
+                    //--Deserialize the config
+                    list = JsonConvert.DeserializeObject<PlaylistManager>(fileContent);
+
+                    //--Delete all Items from the DomainUpDown-Container
+                    UpDownPlaylist.Items.Clear();
+
+                    //--Add each Playlist from the Config to the DomainUpDown
                     foreach (Playlist playlist in list.playlist_list)
                     {
                         UpDownPlaylist.Items.Add(playlist.index + ". " + playlist.playlistName + " : " + playlist.creationDate.ToShortDateString());
@@ -89,16 +129,16 @@ namespace lukys_spotdl.Forms
                 }
                 catch (Exception eX)
                 {
-                    MessageBox.Show("Die Config konnte nicht gelesen werden: " + eX.Message, "Fehler mit der Config!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The config could not be read: " + eX.Message, "Config error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Lade deine erste Playlist herunter um sie hier synchronisieren zu können", "Bisher gibt es noch keine gespeicherten Playlists!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Download your first playlist to be able to synchronize it here", "There are no saved playlists yet!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void startCommandPrompt()
+        private void executeSyncCommand()
         {
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe";
@@ -112,7 +152,7 @@ namespace lukys_spotdl.Forms
             cmd.StandardInput.Flush();
             Thread.Sleep(50);
 
-            //--Start spotdl Download
+            //--Start spotdl Sync
             cmd.StandardInput.WriteLine("spotdl sync \"" + name + ".sync.spotdl\"" + " --cookie-file " + cookieFilePath + " --bitrate disable --format m4a");
 
             //--Wait for Exit

@@ -36,7 +36,7 @@
             synchronizeForm = new Forms.SynchronizeForm();
             tabPageSettings = new TabPage();
             settingsForm = new Forms.SettingsForm();
-            tabPageHelp = new TabPage();
+            tabPageAbout = new TabPage();
             rtxbLicense = new RichTextBox();
             picBoxLogo = new PictureBox();
             lblAutor = new Label();
@@ -45,7 +45,7 @@
             tabPageDownload.SuspendLayout();
             tabPageSync.SuspendLayout();
             tabPageSettings.SuspendLayout();
-            tabPageHelp.SuspendLayout();
+            tabPageAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxLogo).BeginInit();
             SuspendLayout();
             // 
@@ -54,13 +54,14 @@
             tabCntrl.Controls.Add(tabPageDownload);
             tabCntrl.Controls.Add(tabPageSync);
             tabCntrl.Controls.Add(tabPageSettings);
-            tabCntrl.Controls.Add(tabPageHelp);
+            tabCntrl.Controls.Add(tabPageAbout);
             tabCntrl.Dock = DockStyle.Fill;
             tabCntrl.Location = new Point(0, 0);
             tabCntrl.Margin = new Padding(2);
             tabCntrl.Name = "tabCntrl";
             tabCntrl.SelectedIndex = 0;
             tabCntrl.Size = new Size(584, 311);
+            tabCntrl.SizeMode = TabSizeMode.Fixed;
             tabCntrl.TabIndex = 10;
             // 
             // tabPageDownload
@@ -126,18 +127,18 @@
             settingsForm.Size = new Size(576, 283);
             settingsForm.TabIndex = 0;
             // 
-            // tabPageHelp
+            // tabPageAbout
             // 
-            tabPageHelp.Controls.Add(rtxbLicense);
-            tabPageHelp.Controls.Add(picBoxLogo);
-            tabPageHelp.Controls.Add(lblAutor);
-            tabPageHelp.Controls.Add(lblVersion);
-            tabPageHelp.Location = new Point(4, 24);
-            tabPageHelp.Margin = new Padding(0);
-            tabPageHelp.Name = "tabPageHelp";
-            tabPageHelp.Size = new Size(576, 283);
-            tabPageHelp.TabIndex = 2;
-            tabPageHelp.Text = "Help";
+            tabPageAbout.Controls.Add(rtxbLicense);
+            tabPageAbout.Controls.Add(picBoxLogo);
+            tabPageAbout.Controls.Add(lblAutor);
+            tabPageAbout.Controls.Add(lblVersion);
+            tabPageAbout.Location = new Point(4, 24);
+            tabPageAbout.Margin = new Padding(0);
+            tabPageAbout.Name = "tabPageAbout";
+            tabPageAbout.Size = new Size(576, 283);
+            tabPageAbout.TabIndex = 2;
+            tabPageAbout.Text = "About";
             // 
             // rtxbLicense
             // 
@@ -197,8 +198,8 @@
             tabPageDownload.ResumeLayout(false);
             tabPageSync.ResumeLayout(false);
             tabPageSettings.ResumeLayout(false);
-            tabPageHelp.ResumeLayout(false);
-            tabPageHelp.PerformLayout();
+            tabPageAbout.ResumeLayout(false);
+            tabPageAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxLogo).EndInit();
             ResumeLayout(false);
         }
@@ -208,7 +209,7 @@
         private TabControl tabCntrl;
         private TabPage tabPageDownload;
         private TabPage tabPageSync;
-        private TabPage tabPageHelp;
+        private TabPage tabPageAbout;
         private Label lblAutor;
         private Label lblVersion;
         private RichTextBox rtxbLicense;

@@ -8,11 +8,10 @@ namespace lukys_spotdl
         [STAThread]
         static void Main()
         {
-            // Initialize Configuration
+            //--Initialize Configuration
             initializeConfig();
 
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            //--Run the Application
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
         }
@@ -21,13 +20,16 @@ namespace lukys_spotdl
         {
             string configPath;
 
-            if (Properties.Settings.Default.configPath.Length == 0)
+            //--Check if the path to the config-file is present
+            if (Properties.Settings.Default.configPath == "")
             {
-                configPath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\config.json";
+                //--If not, create a new path in the current working-dir
+                configPath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\default-config.json";
                 Properties.Settings.Default.configPath = configPath;
             }
             else
             {
+                //--Get the configured path
                 configPath = Properties.Settings.Default.configPath;
             }
         }

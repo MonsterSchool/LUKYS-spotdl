@@ -44,9 +44,9 @@
             lblConfigPath.AutoSize = true;
             lblConfigPath.Location = new Point(10, 25);
             lblConfigPath.Name = "lblConfigPath";
-            lblConfigPath.Size = new Size(130, 15);
+            lblConfigPath.Size = new Size(126, 15);
             lblConfigPath.TabIndex = 0;
-            lblConfigPath.Text = "Path to the config.json:";
+            lblConfigPath.Text = "Path to the config-file:";
             // 
             // txbConfigPath
             // 
@@ -54,17 +54,17 @@
             txbConfigPath.Location = new Point(10, 40);
             txbConfigPath.Name = "txbConfigPath";
             txbConfigPath.ReadOnly = true;
-            txbConfigPath.Size = new Size(380, 23);
+            txbConfigPath.Size = new Size(345, 23);
             txbConfigPath.TabIndex = 1;
             // 
             // btnSetConfigPath
             // 
             btnSetConfigPath.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSetConfigPath.Location = new Point(395, 39);
+            btnSetConfigPath.Location = new Point(365, 39);
             btnSetConfigPath.Name = "btnSetConfigPath";
-            btnSetConfigPath.Size = new Size(100, 25);
+            btnSetConfigPath.Size = new Size(130, 25);
             btnSetConfigPath.TabIndex = 2;
-            btnSetConfigPath.Text = "Choose Path";
+            btnSetConfigPath.Text = "Choose Destination";
             btnSetConfigPath.UseVisualStyleBackColor = true;
             btnSetConfigPath.Click += btnSetConfigPath_Click;
             // 
