@@ -6,7 +6,7 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 - Synchronize already downloaded Playlists
 
 ## Download pre-compiled Windows-zip
-[Direct Download](https://github.com/MonsterSchool/LUKYS-spotdl/releases/download/v.03.20.24/pre-compiled-lukys-spotdl.zip)
+[Direct Download](https://github.com/MonsterSchool/LUKYS-spotdl/releases/latest/pre-compiled-spotdl.zip)
 
 ## Screenshots
 <img src="img/01.jpg">
