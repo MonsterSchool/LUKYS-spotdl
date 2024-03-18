@@ -1,11 +1,18 @@
 <img src="src/res/spotify.png" alt="Logo" title="spotdl" align="right" height="60" />
 
 # LUKYS-spotdl
-A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user interface.
+A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user interface for Windows 10/11.
+
+## Dependencies
+- .NET 7.0 (or later)
+- Python 3.12.2 (or later)
+- spotdl v4.2.4 (or later)
+- FFmpeg v2024-03-18-git-a32f75d6e2 (or later)
+(see ## How to use for the Links)
 
 ## Features
-- Download Playlists
-- Synchronize already downloaded Playlists
+- Download whole Spotify Playlists
+- Synchronize your downloaded Playlists anytime
 
 ## Download pre-compiled Windows-zip
 [Direct Download (latest Version)](https://github.com/MonsterSchool/LUKYS-spotdl/releases/latest/download/pre-compiled-spotdl.zip)
@@ -16,10 +23,10 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 <img src="img/03.jpg">
 
 ## How to use
-1. Download python
-2. Download spotdl
-3. Download FFmpeg
-4. Download this (LUKYS-spotdl)
+1. [Download python](https://www.python.org/downloads/)
+2. [Download spotdl](https://github.com/spotDL/spotify-downloader)
+3. [Download FFmpeg](https://windowsloop.com/install-ffmpeg-windows-10/)
+4. Download this [(LUKYS-spotdl)](https://github.com/MonsterSchool/LUKYS-spotdl/releases/latest/download/pre-compiled-spotdl.zip)
 
 Start with Downloading a new Playlist to a specified folder. You need to add the cookies.txt-File from YouTube-Music!
 From then you can synchronize your downloaded playlists (for example if you've added new songs to the spotify-playlist).
