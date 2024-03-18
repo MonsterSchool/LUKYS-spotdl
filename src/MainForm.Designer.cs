@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tabCntrl = new TabControl();
             tabPageDownload = new TabPage();
-            downloadForm1 = new Forms.DownloadForm();
+            downloadForm = new Forms.DownloadForm();
             tabPageSync = new TabPage();
-            synchronizeForm1 = new Forms.SynchronizeForm();
+            synchronizeForm = new Forms.SynchronizeForm();
             tabPageHelp = new TabPage();
             rtxbLicense = new RichTextBox();
             lblLicense = new Label();
@@ -62,7 +62,7 @@
             // 
             // tabPageDownload
             // 
-            tabPageDownload.Controls.Add(downloadForm1);
+            tabPageDownload.Controls.Add(downloadForm);
             tabPageDownload.Location = new Point(4, 24);
             tabPageDownload.Margin = new Padding(2);
             tabPageDownload.Name = "tabPageDownload";
@@ -72,18 +72,18 @@
             tabPageDownload.Text = "Download";
             tabPageDownload.UseVisualStyleBackColor = true;
             // 
-            // downloadForm1
+            // downloadForm
             // 
-            downloadForm1.Dock = DockStyle.Fill;
-            downloadForm1.Location = new Point(2, 2);
-            downloadForm1.Margin = new Padding(2);
-            downloadForm1.Name = "downloadForm1";
-            downloadForm1.Size = new Size(504, 248);
-            downloadForm1.TabIndex = 0;
+            downloadForm.Dock = DockStyle.Fill;
+            downloadForm.Location = new Point(2, 2);
+            downloadForm.Margin = new Padding(2);
+            downloadForm.Name = "downloadForm";
+            downloadForm.Size = new Size(504, 248);
+            downloadForm.TabIndex = 0;
             // 
             // tabPageSync
             // 
-            tabPageSync.Controls.Add(synchronizeForm1);
+            tabPageSync.Controls.Add(synchronizeForm);
             tabPageSync.Location = new Point(4, 24);
             tabPageSync.Margin = new Padding(2);
             tabPageSync.Name = "tabPageSync";
@@ -92,14 +92,14 @@
             tabPageSync.Text = "Sync";
             tabPageSync.UseVisualStyleBackColor = true;
             // 
-            // synchronizeForm1
+            // synchronizeForm
             // 
-            synchronizeForm1.Dock = DockStyle.Fill;
-            synchronizeForm1.Location = new Point(0, 0);
-            synchronizeForm1.Margin = new Padding(2);
-            synchronizeForm1.Name = "synchronizeForm1";
-            synchronizeForm1.Size = new Size(508, 252);
-            synchronizeForm1.TabIndex = 0;
+            synchronizeForm.Dock = DockStyle.Fill;
+            synchronizeForm.Location = new Point(0, 0);
+            synchronizeForm.Margin = new Padding(2);
+            synchronizeForm.Name = "synchronizeForm";
+            synchronizeForm.Size = new Size(508, 252);
+            synchronizeForm.TabIndex = 0;
             // 
             // tabPageHelp
             // 
@@ -190,8 +190,8 @@
         private TabControl tabCntrl;
         private TabPage tabPageDownload;
         private TabPage tabPageSync;
-        private Forms.DownloadForm downloadForm1;
-        private Forms.SynchronizeForm synchronizeForm1;
+        private Forms.DownloadForm downloadForm;
+        private Forms.SynchronizeForm synchronizeForm;
         private TabPage tabPageHelp;
         private Label lblAutor;
         private Label lblVersion;
