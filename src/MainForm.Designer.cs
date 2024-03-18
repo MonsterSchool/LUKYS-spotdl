@@ -31,12 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tabCntrl = new TabControl();
             tabPageDownload = new TabPage();
-            downloadForm = new Forms.DownloadForm();
+            downloadForm1 = new Forms.DownloadForm();
             tabPageSync = new TabPage();
-            synchronizeForm = new Forms.SynchronizeForm();
+            synchronizeForm1 = new Forms.SynchronizeForm();
             tabPageHelp = new TabPage();
             rtxbLicense = new RichTextBox();
-            lblLicense = new Label();
             picBoxLogo = new PictureBox();
             lblAutor = new Label();
             lblVersion = new Label();
@@ -57,88 +56,78 @@
             tabCntrl.Margin = new Padding(2);
             tabCntrl.Name = "tabCntrl";
             tabCntrl.SelectedIndex = 0;
-            tabCntrl.Size = new Size(516, 280);
+            tabCntrl.Size = new Size(584, 311);
             tabCntrl.TabIndex = 10;
             // 
             // tabPageDownload
             // 
-            tabPageDownload.Controls.Add(downloadForm);
+            tabPageDownload.Controls.Add(downloadForm1);
             tabPageDownload.Location = new Point(4, 24);
             tabPageDownload.Margin = new Padding(2);
             tabPageDownload.Name = "tabPageDownload";
             tabPageDownload.Padding = new Padding(2);
-            tabPageDownload.Size = new Size(508, 252);
+            tabPageDownload.Size = new Size(576, 283);
             tabPageDownload.TabIndex = 0;
             tabPageDownload.Text = "Download";
             tabPageDownload.UseVisualStyleBackColor = true;
             // 
-            // downloadForm
+            // downloadForm1
             // 
-            downloadForm.Dock = DockStyle.Fill;
-            downloadForm.Location = new Point(2, 2);
-            downloadForm.Margin = new Padding(2);
-            downloadForm.Name = "downloadForm";
-            downloadForm.Size = new Size(504, 248);
-            downloadForm.TabIndex = 0;
+            downloadForm1.Dock = DockStyle.Fill;
+            downloadForm1.Location = new Point(2, 2);
+            downloadForm1.Margin = new Padding(2);
+            downloadForm1.Name = "downloadForm1";
+            downloadForm1.Size = new Size(572, 279);
+            downloadForm1.TabIndex = 0;
             // 
             // tabPageSync
             // 
-            tabPageSync.Controls.Add(synchronizeForm);
+            tabPageSync.Controls.Add(synchronizeForm1);
             tabPageSync.Location = new Point(4, 24);
             tabPageSync.Margin = new Padding(2);
             tabPageSync.Name = "tabPageSync";
-            tabPageSync.Size = new Size(508, 252);
+            tabPageSync.Size = new Size(576, 283);
             tabPageSync.TabIndex = 1;
             tabPageSync.Text = "Sync";
             tabPageSync.UseVisualStyleBackColor = true;
             // 
-            // synchronizeForm
+            // synchronizeForm1
             // 
-            synchronizeForm.Dock = DockStyle.Fill;
-            synchronizeForm.Location = new Point(0, 0);
-            synchronizeForm.Margin = new Padding(2);
-            synchronizeForm.Name = "synchronizeForm";
-            synchronizeForm.Size = new Size(508, 252);
-            synchronizeForm.TabIndex = 0;
+            synchronizeForm1.Dock = DockStyle.Fill;
+            synchronizeForm1.Location = new Point(0, 0);
+            synchronizeForm1.Margin = new Padding(2);
+            synchronizeForm1.Name = "synchronizeForm1";
+            synchronizeForm1.Size = new Size(576, 283);
+            synchronizeForm1.TabIndex = 0;
             // 
             // tabPageHelp
             // 
             tabPageHelp.Controls.Add(rtxbLicense);
-            tabPageHelp.Controls.Add(lblLicense);
             tabPageHelp.Controls.Add(picBoxLogo);
             tabPageHelp.Controls.Add(lblAutor);
             tabPageHelp.Controls.Add(lblVersion);
             tabPageHelp.Location = new Point(4, 24);
             tabPageHelp.Name = "tabPageHelp";
-            tabPageHelp.Size = new Size(508, 252);
+            tabPageHelp.Size = new Size(576, 283);
             tabPageHelp.TabIndex = 2;
             tabPageHelp.Text = "Hilfe";
-            tabPageHelp.UseVisualStyleBackColor = true;
             // 
             // rtxbLicense
             // 
             rtxbLicense.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtxbLicense.Location = new Point(10, 100);
+            rtxbLicense.BorderStyle = BorderStyle.None;
+            rtxbLicense.Location = new Point(10, 90);
             rtxbLicense.Name = "rtxbLicense";
             rtxbLicense.ReadOnly = true;
-            rtxbLicense.Size = new Size(490, 145);
+            rtxbLicense.Size = new Size(560, 185);
             rtxbLicense.TabIndex = 4;
             rtxbLicense.Text = resources.GetString("rtxbLicense.Text");
-            // 
-            // lblLicense
-            // 
-            lblLicense.AutoSize = true;
-            lblLicense.Location = new Point(10, 85);
-            lblLicense.Name = "lblLicense";
-            lblLicense.Size = new Size(42, 15);
-            lblLicense.TabIndex = 3;
-            lblLicense.Text = "Lizenz:";
             // 
             // picBoxLogo
             // 
             picBoxLogo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             picBoxLogo.Image = Properties.Resources.spotify;
-            picBoxLogo.Location = new Point(435, 15);
+            picBoxLogo.Location = new Point(510, 10);
             picBoxLogo.Name = "picBoxLogo";
             picBoxLogo.Size = new Size(60, 60);
             picBoxLogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -148,7 +137,7 @@
             // lblAutor
             // 
             lblAutor.AutoSize = true;
-            lblAutor.Location = new Point(10, 30);
+            lblAutor.Location = new Point(10, 35);
             lblAutor.Name = "lblAutor";
             lblAutor.Size = new Size(108, 15);
             lblAutor.TabIndex = 1;
@@ -157,7 +146,7 @@
             // lblVersion
             // 
             lblVersion.AutoSize = true;
-            lblVersion.Location = new Point(10, 10);
+            lblVersion.Location = new Point(10, 15);
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(56, 15);
             lblVersion.TabIndex = 0;
@@ -167,11 +156,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(516, 280);
+            ClientSize = new Size(584, 311);
             Controls.Add(tabCntrl);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
-            MinimumSize = new Size(532, 319);
+            MinimumSize = new Size(600, 350);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LUKY - spotdl";
@@ -190,13 +179,12 @@
         private TabControl tabCntrl;
         private TabPage tabPageDownload;
         private TabPage tabPageSync;
-        private Forms.DownloadForm downloadForm;
-        private Forms.SynchronizeForm synchronizeForm;
         private TabPage tabPageHelp;
         private Label lblAutor;
         private Label lblVersion;
         private RichTextBox rtxbLicense;
-        private Label lblLicense;
         private PictureBox picBoxLogo;
+        private Forms.SynchronizeForm synchronizeForm1;
+        private Forms.DownloadForm downloadForm1;
     }
 }

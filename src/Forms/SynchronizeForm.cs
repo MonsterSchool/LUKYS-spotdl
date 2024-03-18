@@ -8,7 +8,7 @@ namespace lukys_spotdl.Forms
     public partial class SynchronizeForm : UserControl
     {
         //--Variables
-        private PlaylistList list;
+        private PlaylistManager list;
         private string cookieFilePath = "";
         private string spotifyUrl = "";
         private string name = "";
@@ -23,7 +23,7 @@ namespace lukys_spotdl.Forms
 
         private void playlistSelect_SelectedItemChanged(object sender, EventArgs e)
         {
-            foreach (Playlist item in list.playlistList)
+            foreach (Playlist item in list.playlist_list)
             {
                 if (UpDownPlaylist.SelectedItem.ToString().StartsWith(item.index + ". "))
                 {
@@ -81,9 +81,9 @@ namespace lukys_spotdl.Forms
 
                 try
                 {
-                    list = JsonConvert.DeserializeObject<PlaylistList>(fileContent);
+                    list = JsonConvert.DeserializeObject<PlaylistManager>(fileContent);
 
-                    foreach (Playlist playlist in list.playlistList)
+                    foreach (Playlist playlist in list.playlist_list)
                     {
                         UpDownPlaylist.Items.Add(playlist.index + ". " + playlist.playlistName + " : " + playlist.creationDate.ToShortDateString());
                     }                    

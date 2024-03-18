@@ -53,10 +53,10 @@
             // btnStartDownload
             // 
             btnStartDownload.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnStartDownload.Location = new Point(125, 100);
+            btnStartDownload.Location = new Point(10, 100);
             btnStartDownload.Margin = new Padding(2);
             btnStartDownload.Name = "btnStartDownload";
-            btnStartDownload.Size = new Size(391, 25);
+            btnStartDownload.Size = new Size(506, 25);
             btnStartDownload.TabIndex = 35;
             btnStartDownload.Text = "Start Sync";
             btnStartDownload.UseVisualStyleBackColor = true;
@@ -110,17 +110,18 @@
             UpDownPlaylist.Margin = new Padding(2);
             UpDownPlaylist.Name = "UpDownPlaylist";
             UpDownPlaylist.ReadOnly = true;
-            UpDownPlaylist.Size = new Size(505, 23);
+            UpDownPlaylist.Size = new Size(410, 23);
             UpDownPlaylist.TabIndex = 38;
-            UpDownPlaylist.Text = "Select Playlist";
+            UpDownPlaylist.Text = "Load Configs first";
             UpDownPlaylist.SelectedItemChanged += playlistSelect_SelectedItemChanged;
             // 
             // btnRefreshList
             // 
-            btnRefreshList.Location = new Point(10, 100);
+            btnRefreshList.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefreshList.Location = new Point(425, 25);
             btnRefreshList.Margin = new Padding(2);
             btnRefreshList.Name = "btnRefreshList";
-            btnRefreshList.Size = new Size(111, 25);
+            btnRefreshList.Size = new Size(90, 25);
             btnRefreshList.TabIndex = 39;
             btnRefreshList.Text = "Load Config";
             btnRefreshList.UseVisualStyleBackColor = true;

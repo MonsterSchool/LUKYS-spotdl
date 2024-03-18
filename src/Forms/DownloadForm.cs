@@ -1,6 +1,7 @@
 ﻿using lukys_spotdl.Classes;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Text.Json.Nodes;
 
 namespace lukys_spotdl.Forms
 {
@@ -76,15 +77,63 @@ namespace lukys_spotdl.Forms
                 MessageBox.Show("Nicht alle Textfelder sind ausgefüllt. Fülle alle Felder aus, damit der Download gestartet werden kann.", "Informationen fehlen!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-            {
-                writeConfigFile();
-                Thread bgThread = new Thread(() => startCommandPrompt());
-                bgThread.Start();
+            {   
+                //--Check if the Playlist is already downloaded
+                if (checkExistingPlaylist(deserializeConfig()).Item1 == false)
+                {
+                    //--Write the new Playlist to the Config
+                    writeConfigFile();
+
+                    //--Start the Download in a seperate Thread
+                    Thread bgThread = new Thread(() => startCommandPrompt());
+                    bgThread.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Diese Playlist wurde bereits heruntergeladen. Schaue im Sync-Tab, ob du die Playlist aktualisieren kannst.", "Playlist bereits vorhanden", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
 
         //--Misc Methods
+        private PlaylistManager deserializeConfig()
+        {
+            PlaylistManager playlistManager = null;
+
+            //--Check if config-File exsists
+            if (File.Exists("config.json"))
+            {
+                //--Read config-File
+                string fileContent = File.ReadAllText("config.json");
+
+                //--Deserialize current Config
+                playlistManager = JsonConvert.DeserializeObject<PlaylistManager>(fileContent);
+            }
+
+            return playlistManager;
+        }
+
+        private Tuple<bool, int, string, string, DateTime> checkExistingPlaylist(PlaylistManager pList)
+        {
+            if (pList != null)
+            {
+                foreach(Playlist playlist in pList.playlist_list)
+                {
+                    if (playlist.playlistSpotifyUrl == spotifyUrl)
+                    {
+                        return Tuple.Create(true, playlist.index, playlist.playlistName, playlist.playlistFolderPath, playlist.creationDate);
+                    }
+                }
+
+                return Tuple.Create(false, 0, "", "", DateTime.Now);
+            }
+            else
+            {
+                return Tuple.Create(false, 0, "", "", DateTime.Now);
+            }
+        }
+
         private void writeConfigFile()
         {
             //--Create Playlist & List
@@ -109,13 +158,13 @@ namespace lukys_spotdl.Forms
                     try
                     {
                         //--Deserialize current Config
-                        PlaylistList list = JsonConvert.DeserializeObject<PlaylistList>(fileContent);
+                        PlaylistManager list = JsonConvert.DeserializeObject<PlaylistManager>(fileContent);
 
                         //--Count up the new Index-Nr.
-                        playlist.index = list.playlistList.LastOrDefault().index + 1;
+                        playlist.index = list.playlist_list.LastOrDefault().index + 1;
 
                         //--Add new Playlist to the current config
-                        list.playlistList.Add(playlist);
+                        list.playlist_list.Add(playlist);
 
                         //--Serialize new config
                         string jsonList = JsonConvert.SerializeObject(list);
@@ -131,8 +180,8 @@ namespace lukys_spotdl.Forms
             }
             else
             {
-                PlaylistList newList = new PlaylistList();
-                newList.playlistList.Add(playlist);
+                PlaylistManager newList = new PlaylistManager();
+                newList.playlist_list.Add(playlist);
 
                 string newJsonObject = JsonConvert.SerializeObject(newList);
                 File.WriteAllText("config.json", newJsonObject);

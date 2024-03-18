@@ -27,5 +27,18 @@ namespace lukys_spotdl
 
             lblVersion.Text = "Version: " + Assembly.GetEntryAssembly().GetName().Version;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void panelTop_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Location = new Point(Cursor.Position.X + e.X, Cursor.Position.Y + e.Y);
+            }
+        }
     }
 }
