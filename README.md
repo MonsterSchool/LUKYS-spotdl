@@ -8,7 +8,7 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 - Python 3.12.2 (or later)
 - spotdl v4.2.4 (or later)
 - FFmpeg v2024-03-18-git-a32f75d6e2 (or later)
-(see ## How to use for the Links)
+(see "How to use" for the Links)
 
 ## Features
 - Download whole Spotify Playlists
