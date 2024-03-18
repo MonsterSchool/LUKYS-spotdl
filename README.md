@@ -1,6 +1,6 @@
 <img src="src/res/spotify.png" alt="Logo" title="spotdl" align="right" height="60" />
 
-# LUKYS-spotdl
+# LUKYs-spotdl
 A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user interface for Windows 10/11 32/64-bit.
 
 ## Dependencies
