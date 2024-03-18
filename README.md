@@ -11,8 +11,8 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 (see "How to use" for the Links)
 
 ## Features
-- Download whole Spotify Playlists
-- Synchronize your downloaded Playlists anytime
+-  Download entire Spotify playlists
+-  Synchronize your downloaded playlists at any time
 
 ## Download pre-compiled Windows-zip
 [Direct Download (latest Version)](https://github.com/MonsterSchool/LUKYS-spotdl/releases/latest/download/pre-compiled-spotdl.zip)
