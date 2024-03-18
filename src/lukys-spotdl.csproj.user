@@ -4,6 +4,9 @@
     <Compile Update="Forms\DownloadForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Forms\SettingsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Forms\SynchronizeForm.cs">
       <SubType>UserControl</SubType>
     </Compile>

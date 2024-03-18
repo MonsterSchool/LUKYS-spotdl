@@ -31,9 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tabCntrl = new TabControl();
             tabPageDownload = new TabPage();
-            downloadForm1 = new Forms.DownloadForm();
+            downloadForm = new Forms.DownloadForm();
             tabPageSync = new TabPage();
-            synchronizeForm1 = new Forms.SynchronizeForm();
+            synchronizeForm = new Forms.SynchronizeForm();
+            tabPageSettings = new TabPage();
+            settingsForm = new Forms.SettingsForm();
             tabPageHelp = new TabPage();
             rtxbLicense = new RichTextBox();
             picBoxLogo = new PictureBox();
@@ -42,6 +44,7 @@
             tabCntrl.SuspendLayout();
             tabPageDownload.SuspendLayout();
             tabPageSync.SuspendLayout();
+            tabPageSettings.SuspendLayout();
             tabPageHelp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxLogo).BeginInit();
             SuspendLayout();
@@ -50,6 +53,7 @@
             // 
             tabCntrl.Controls.Add(tabPageDownload);
             tabCntrl.Controls.Add(tabPageSync);
+            tabCntrl.Controls.Add(tabPageSettings);
             tabCntrl.Controls.Add(tabPageHelp);
             tabCntrl.Dock = DockStyle.Fill;
             tabCntrl.Location = new Point(0, 0);
@@ -61,44 +65,66 @@
             // 
             // tabPageDownload
             // 
-            tabPageDownload.Controls.Add(downloadForm1);
+            tabPageDownload.Controls.Add(downloadForm);
             tabPageDownload.Location = new Point(4, 24);
-            tabPageDownload.Margin = new Padding(2);
+            tabPageDownload.Margin = new Padding(0);
             tabPageDownload.Name = "tabPageDownload";
-            tabPageDownload.Padding = new Padding(2);
             tabPageDownload.Size = new Size(576, 283);
             tabPageDownload.TabIndex = 0;
             tabPageDownload.Text = "Download";
             tabPageDownload.UseVisualStyleBackColor = true;
             // 
-            // downloadForm1
+            // downloadForm
             // 
-            downloadForm1.Dock = DockStyle.Fill;
-            downloadForm1.Location = new Point(2, 2);
-            downloadForm1.Margin = new Padding(2);
-            downloadForm1.Name = "downloadForm1";
-            downloadForm1.Size = new Size(572, 279);
-            downloadForm1.TabIndex = 0;
+            downloadForm.BackColor = SystemColors.Control;
+            downloadForm.Dock = DockStyle.Fill;
+            downloadForm.Location = new Point(0, 0);
+            downloadForm.Margin = new Padding(0);
+            downloadForm.Name = "downloadForm";
+            downloadForm.Size = new Size(576, 283);
+            downloadForm.TabIndex = 0;
             // 
             // tabPageSync
             // 
-            tabPageSync.Controls.Add(synchronizeForm1);
+            tabPageSync.Controls.Add(synchronizeForm);
             tabPageSync.Location = new Point(4, 24);
-            tabPageSync.Margin = new Padding(2);
+            tabPageSync.Margin = new Padding(0);
             tabPageSync.Name = "tabPageSync";
             tabPageSync.Size = new Size(576, 283);
             tabPageSync.TabIndex = 1;
             tabPageSync.Text = "Sync";
             tabPageSync.UseVisualStyleBackColor = true;
             // 
-            // synchronizeForm1
+            // synchronizeForm
             // 
-            synchronizeForm1.Dock = DockStyle.Fill;
-            synchronizeForm1.Location = new Point(0, 0);
-            synchronizeForm1.Margin = new Padding(2);
-            synchronizeForm1.Name = "synchronizeForm1";
-            synchronizeForm1.Size = new Size(576, 283);
-            synchronizeForm1.TabIndex = 0;
+            synchronizeForm.BackColor = SystemColors.Control;
+            synchronizeForm.Dock = DockStyle.Fill;
+            synchronizeForm.Location = new Point(0, 0);
+            synchronizeForm.Margin = new Padding(0);
+            synchronizeForm.Name = "synchronizeForm";
+            synchronizeForm.Size = new Size(576, 283);
+            synchronizeForm.TabIndex = 0;
+            // 
+            // tabPageSettings
+            // 
+            tabPageSettings.Controls.Add(settingsForm);
+            tabPageSettings.Location = new Point(4, 24);
+            tabPageSettings.Margin = new Padding(0);
+            tabPageSettings.Name = "tabPageSettings";
+            tabPageSettings.Size = new Size(576, 283);
+            tabPageSettings.TabIndex = 3;
+            tabPageSettings.Text = "Settings";
+            tabPageSettings.UseVisualStyleBackColor = true;
+            // 
+            // settingsForm
+            // 
+            settingsForm.BackColor = SystemColors.Control;
+            settingsForm.Dock = DockStyle.Fill;
+            settingsForm.Location = new Point(0, 0);
+            settingsForm.Margin = new Padding(0);
+            settingsForm.Name = "settingsForm";
+            settingsForm.Size = new Size(576, 283);
+            settingsForm.TabIndex = 0;
             // 
             // tabPageHelp
             // 
@@ -107,10 +133,11 @@
             tabPageHelp.Controls.Add(lblAutor);
             tabPageHelp.Controls.Add(lblVersion);
             tabPageHelp.Location = new Point(4, 24);
+            tabPageHelp.Margin = new Padding(0);
             tabPageHelp.Name = "tabPageHelp";
             tabPageHelp.Size = new Size(576, 283);
             tabPageHelp.TabIndex = 2;
-            tabPageHelp.Text = "Hilfe";
+            tabPageHelp.Text = "Help";
             // 
             // rtxbLicense
             // 
@@ -160,6 +187,7 @@
             Controls.Add(tabCntrl);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
+            MaximizeBox = false;
             MinimumSize = new Size(600, 350);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -168,6 +196,7 @@
             tabCntrl.ResumeLayout(false);
             tabPageDownload.ResumeLayout(false);
             tabPageSync.ResumeLayout(false);
+            tabPageSettings.ResumeLayout(false);
             tabPageHelp.ResumeLayout(false);
             tabPageHelp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxLogo).EndInit();
@@ -184,7 +213,9 @@
         private Label lblVersion;
         private RichTextBox rtxbLicense;
         private PictureBox picBoxLogo;
-        private Forms.SynchronizeForm synchronizeForm1;
-        private Forms.DownloadForm downloadForm1;
+        private TabPage tabPageSettings;
+        private Forms.SettingsForm settingsForm;
+        private Forms.DownloadForm downloadForm;
+        private Forms.SynchronizeForm synchronizeForm;
     }
 }

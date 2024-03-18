@@ -45,7 +45,7 @@
             // btnStartDownload
             // 
             btnStartDownload.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnStartDownload.Location = new Point(10, 185);
+            btnStartDownload.Location = new Point(10, 190);
             btnStartDownload.Margin = new Padding(2);
             btnStartDownload.Name = "btnStartDownload";
             btnStartDownload.Size = new Size(505, 27);
@@ -57,7 +57,7 @@
             // txbPlaylistName
             // 
             txbPlaylistName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txbPlaylistName.Location = new Point(10, 155);
+            txbPlaylistName.Location = new Point(10, 160);
             txbPlaylistName.Margin = new Padding(2);
             txbPlaylistName.Name = "txbPlaylistName";
             txbPlaylistName.Size = new Size(505, 23);
@@ -67,7 +67,7 @@
             // lblPlaylistName
             // 
             lblPlaylistName.AutoSize = true;
-            lblPlaylistName.Location = new Point(10, 140);
+            lblPlaylistName.Location = new Point(10, 145);
             lblPlaylistName.Margin = new Padding(2, 0, 2, 0);
             lblPlaylistName.Name = "lblPlaylistName";
             lblPlaylistName.Size = new Size(84, 15);
@@ -77,10 +77,10 @@
             // btnSelectCookies
             // 
             btnSelectCookies.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSelectCookies.Location = new Point(425, 70);
+            btnSelectCookies.Location = new Point(425, 69);
             btnSelectCookies.Margin = new Padding(2);
             btnSelectCookies.Name = "btnSelectCookies";
-            btnSelectCookies.Size = new Size(92, 25);
+            btnSelectCookies.Size = new Size(90, 25);
             btnSelectCookies.TabIndex = 24;
             btnSelectCookies.Text = "Select File";
             btnSelectCookies.UseVisualStyleBackColor = true;
@@ -92,6 +92,7 @@
             txbCookies.Location = new Point(10, 70);
             txbCookies.Margin = new Padding(2);
             txbCookies.Name = "txbCookies";
+            txbCookies.ReadOnly = true;
             txbCookies.Size = new Size(410, 23);
             txbCookies.TabIndex = 23;
             // 
@@ -127,12 +128,12 @@
             // 
             // lblInfo
             // 
-            lblInfo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblInfo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblInfo.ForeColor = Color.Red;
-            lblInfo.Location = new Point(10, 220);
+            lblInfo.Location = new Point(10, 225);
             lblInfo.Margin = new Padding(2, 0, 2, 0);
             lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(507, 25);
+            lblInfo.Size = new Size(505, 25);
             lblInfo.TabIndex = 30;
             lblInfo.Text = "Do not close the Terminal-Window!";
             lblInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -140,7 +141,7 @@
             // lblDestFolder
             // 
             lblDestFolder.AutoSize = true;
-            lblDestFolder.Location = new Point(10, 95);
+            lblDestFolder.Location = new Point(10, 100);
             lblDestFolder.Margin = new Padding(2, 0, 2, 0);
             lblDestFolder.Name = "lblDestFolder";
             lblDestFolder.Size = new Size(106, 15);
@@ -150,16 +151,17 @@
             // txbDestFolder
             // 
             txbDestFolder.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txbDestFolder.Location = new Point(10, 110);
+            txbDestFolder.Location = new Point(10, 115);
             txbDestFolder.Margin = new Padding(2);
             txbDestFolder.Name = "txbDestFolder";
+            txbDestFolder.ReadOnly = true;
             txbDestFolder.Size = new Size(410, 23);
             txbDestFolder.TabIndex = 32;
             // 
             // btnSelectFolder
             // 
             btnSelectFolder.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSelectFolder.Location = new Point(425, 110);
+            btnSelectFolder.Location = new Point(425, 114);
             btnSelectFolder.Margin = new Padding(2);
             btnSelectFolder.Name = "btnSelectFolder";
             btnSelectFolder.Size = new Size(90, 25);

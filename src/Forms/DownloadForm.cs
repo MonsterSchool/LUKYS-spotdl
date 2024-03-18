@@ -1,7 +1,6 @@
 ﻿using lukys_spotdl.Classes;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Text.Json.Nodes;
 
 namespace lukys_spotdl.Forms
 {
@@ -49,7 +48,6 @@ namespace lukys_spotdl.Forms
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
                     cookieFilePath = openFileDialog.FileName;
                     txbCookies.Text = cookieFilePath;
                 }
@@ -77,7 +75,7 @@ namespace lukys_spotdl.Forms
                 MessageBox.Show("Nicht alle Textfelder sind ausgefüllt. Fülle alle Felder aus, damit der Download gestartet werden kann.", "Informationen fehlen!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-            {   
+            {
                 //--Check if the Playlist is already downloaded
                 if (checkExistingPlaylist(deserializeConfig()).Item1 == false)
                 {
@@ -102,10 +100,10 @@ namespace lukys_spotdl.Forms
             PlaylistManager playlistManager = null;
 
             //--Check if config-File exsists
-            if (File.Exists("config.json"))
+            if (File.Exists(Properties.Settings.Default.configPath))
             {
                 //--Read config-File
-                string fileContent = File.ReadAllText("config.json");
+                string fileContent = File.ReadAllText(Properties.Settings.Default.configPath);
 
                 //--Deserialize current Config
                 playlistManager = JsonConvert.DeserializeObject<PlaylistManager>(fileContent);
@@ -118,7 +116,7 @@ namespace lukys_spotdl.Forms
         {
             if (pList != null)
             {
-                foreach(Playlist playlist in pList.playlist_list)
+                foreach (Playlist playlist in pList.playlist_list)
                 {
                     if (playlist.playlistSpotifyUrl == spotifyUrl)
                     {
@@ -148,10 +146,10 @@ namespace lukys_spotdl.Forms
             string jsonObject = JsonConvert.SerializeObject(playlist);
 
             //--Check if config-File exsists
-            if (File.Exists("config.json"))
+            if (File.Exists(Properties.Settings.Default.configPath))
             {
                 //--Read config-File
-                string fileContent = File.ReadAllText("config.json");
+                string fileContent = File.ReadAllText(Properties.Settings.Default.configPath);
 
                 if (!fileContent.Contains(jsonObject))
                 {
@@ -170,7 +168,7 @@ namespace lukys_spotdl.Forms
                         string jsonList = JsonConvert.SerializeObject(list);
 
                         //--Write config to file
-                        File.WriteAllText("config.json", jsonList);
+                        File.WriteAllText(Properties.Settings.Default.configPath, jsonList);
                     }
                     catch (Exception eX)
                     {
@@ -184,7 +182,7 @@ namespace lukys_spotdl.Forms
                 newList.playlist_list.Add(playlist);
 
                 string newJsonObject = JsonConvert.SerializeObject(newList);
-                File.WriteAllText("config.json", newJsonObject);
+                File.WriteAllText(Properties.Settings.Default.configPath, newJsonObject);
             }
         }
 

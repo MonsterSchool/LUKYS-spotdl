@@ -40,12 +40,12 @@
             // 
             // lblInfo
             // 
-            lblInfo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblInfo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblInfo.ForeColor = Color.Red;
             lblInfo.Location = new Point(10, 130);
             lblInfo.Margin = new Padding(2, 0, 2, 0);
             lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(505, 30);
+            lblInfo.Size = new Size(505, 25);
             lblInfo.TabIndex = 36;
             lblInfo.Text = "Do not close the Terminal-Window!";
             lblInfo.TextAlign = ContentAlignment.MiddleCenter;
@@ -56,7 +56,7 @@
             btnStartDownload.Location = new Point(10, 100);
             btnStartDownload.Margin = new Padding(2);
             btnStartDownload.Name = "btnStartDownload";
-            btnStartDownload.Size = new Size(506, 25);
+            btnStartDownload.Size = new Size(505, 25);
             btnStartDownload.TabIndex = 35;
             btnStartDownload.Text = "Start Sync";
             btnStartDownload.UseVisualStyleBackColor = true;
@@ -78,6 +78,7 @@
             txbCookies.Location = new Point(10, 70);
             txbCookies.Margin = new Padding(2);
             txbCookies.Name = "txbCookies";
+            txbCookies.ReadOnly = true;
             txbCookies.Size = new Size(410, 23);
             txbCookies.TabIndex = 32;
             // 
@@ -94,7 +95,7 @@
             // btnCookies
             // 
             btnCookies.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCookies.Location = new Point(425, 70);
+            btnCookies.Location = new Point(425, 69);
             btnCookies.Margin = new Padding(2);
             btnCookies.Name = "btnCookies";
             btnCookies.Size = new Size(90, 25);
@@ -112,13 +113,13 @@
             UpDownPlaylist.ReadOnly = true;
             UpDownPlaylist.Size = new Size(410, 23);
             UpDownPlaylist.TabIndex = 38;
-            UpDownPlaylist.Text = "Load Configs first";
+            UpDownPlaylist.Text = "Load the configs first...";
             UpDownPlaylist.SelectedItemChanged += playlistSelect_SelectedItemChanged;
             // 
             // btnRefreshList
             // 
             btnRefreshList.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnRefreshList.Location = new Point(425, 25);
+            btnRefreshList.Location = new Point(425, 24);
             btnRefreshList.Margin = new Padding(2);
             btnRefreshList.Name = "btnRefreshList";
             btnRefreshList.Size = new Size(90, 25);

@@ -1,7 +1,6 @@
 ﻿using lukys_spotdl.Classes;
 using Newtonsoft.Json;
 using System.Diagnostics;
-using System.Xml.Linq;
 
 namespace lukys_spotdl.Forms
 {
@@ -74,10 +73,10 @@ namespace lukys_spotdl.Forms
         private void checkConfigFile()
         {
             //--Check if config-File exsists
-            if (File.Exists("config.json"))
+            if (File.Exists(Properties.Settings.Default.configPath))
             {
                 //--Read config-File
-                string fileContent = File.ReadAllText("config.json");
+                string fileContent = File.ReadAllText(Properties.Settings.Default.configPath);
 
                 try
                 {
@@ -86,12 +85,12 @@ namespace lukys_spotdl.Forms
                     foreach (Playlist playlist in list.playlist_list)
                     {
                         UpDownPlaylist.Items.Add(playlist.index + ". " + playlist.playlistName + " : " + playlist.creationDate.ToShortDateString());
-                    }                    
+                    }
                 }
                 catch (Exception eX)
                 {
-                    MessageBox.Show("Die Config konnte nicht gelesen werden: " + eX.Message, "Fehler mit der Config!", MessageBoxButtons.OK, MessageBoxIcon.Error) ;
-                } 
+                    MessageBox.Show("Die Config konnte nicht gelesen werden: " + eX.Message, "Fehler mit der Config!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
