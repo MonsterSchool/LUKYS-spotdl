@@ -17,11 +17,6 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 ## Download pre-compiled Windows-zip
 [Direct Download (latest Version)](https://github.com/MonsterSchool/LUKYS-spotdl/releases/latest/download/pre-compiled-spotdl.zip)
 
-## Screenshots
-<img src="img/01.jpg">
-<img src="img/02.jpg">
-<img src="img/03.jpg">
-
 ## How to use
 1. [Download python](https://www.python.org/downloads/)
 2. [Download spotdl](https://github.com/spotDL/spotify-downloader)
@@ -30,6 +25,11 @@ A selfmade [spotdl](https://github.com/spotDL/spotify-downloader) graphical user
 
 Start with Downloading a new Playlist to a specified folder. You need to add the cookies.txt-File from YouTube-Music!
 From then you can synchronize your downloaded playlists (for example if you've added new songs to the spotify-playlist).
+
+## Screenshots
+<img src="img/01.jpg">
+<img src="img/02.jpg">
+<img src="img/03.jpg">
 
 ## Copyright
 The contents and works in this software created by the software operators are subject to German copyright law. The reproduction, editing, distribution and any kind of use outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this software are only permitted for private, non-commercial use.
