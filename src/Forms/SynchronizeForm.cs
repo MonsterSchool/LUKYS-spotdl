@@ -140,6 +140,13 @@ namespace lukys_spotdl.Forms
 
         private void executeSyncCommand()
         {
+            //--Check the folderPath and adjust if it contains whitespace
+            if (folderPath.Any(Char.IsWhiteSpace))
+            {
+                folderPath = "\"" + folderPath + "\"";
+            }
+
+            //--Create a new Process
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe";
             cmd.StartInfo.RedirectStandardInput = true;
