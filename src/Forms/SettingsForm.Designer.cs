@@ -35,6 +35,7 @@
             btnValidateConfig = new Button();
             grpBoxSpotdl = new GroupBox();
             btnUpdateSpotdl = new Button();
+            btnGenerateConfig = new Button();
             grpBoxConfig.SuspendLayout();
             grpBoxSpotdl.SuspendLayout();
             SuspendLayout();
@@ -71,13 +72,14 @@
             // grpBoxConfig
             // 
             grpBoxConfig.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grpBoxConfig.Controls.Add(btnGenerateConfig);
             grpBoxConfig.Controls.Add(btnValidateConfig);
             grpBoxConfig.Controls.Add(txbConfigPath);
             grpBoxConfig.Controls.Add(btnSetConfigPath);
             grpBoxConfig.Controls.Add(lblConfigPath);
             grpBoxConfig.Location = new Point(10, 10);
             grpBoxConfig.Name = "grpBoxConfig";
-            grpBoxConfig.Size = new Size(505, 100);
+            grpBoxConfig.Size = new Size(505, 135);
             grpBoxConfig.TabIndex = 3;
             grpBoxConfig.TabStop = false;
             grpBoxConfig.Text = "Configuration:";
@@ -87,7 +89,7 @@
             btnValidateConfig.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnValidateConfig.Location = new Point(10, 70);
             btnValidateConfig.Name = "btnValidateConfig";
-            btnValidateConfig.Size = new Size(485, 23);
+            btnValidateConfig.Size = new Size(485, 25);
             btnValidateConfig.TabIndex = 3;
             btnValidateConfig.Text = "Validate Config";
             btnValidateConfig.UseVisualStyleBackColor = true;
@@ -97,7 +99,7 @@
             // 
             grpBoxSpotdl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             grpBoxSpotdl.Controls.Add(btnUpdateSpotdl);
-            grpBoxSpotdl.Location = new Point(10, 120);
+            grpBoxSpotdl.Location = new Point(10, 155);
             grpBoxSpotdl.Name = "grpBoxSpotdl";
             grpBoxSpotdl.Size = new Size(505, 55);
             grpBoxSpotdl.TabIndex = 4;
@@ -114,6 +116,17 @@
             btnUpdateSpotdl.Text = "Update Spotdl";
             btnUpdateSpotdl.UseVisualStyleBackColor = true;
             btnUpdateSpotdl.Click += btnUpdateSpotdl_Click;
+            // 
+            // btnGenerateConfig
+            // 
+            btnGenerateConfig.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnGenerateConfig.Location = new Point(10, 100);
+            btnGenerateConfig.Name = "btnGenerateConfig";
+            btnGenerateConfig.Size = new Size(485, 25);
+            btnGenerateConfig.TabIndex = 4;
+            btnGenerateConfig.Text = "Generation config of already downloaded playlists";
+            btnGenerateConfig.UseVisualStyleBackColor = true;
+            btnGenerateConfig.Click += btnGenerateConfig_Click;
             // 
             // SettingsForm
             // 
@@ -138,5 +151,6 @@
         private Button btnValidateConfig;
         private GroupBox grpBoxSpotdl;
         private Button btnUpdateSpotdl;
+        private Button btnGenerateConfig;
     }
 }
