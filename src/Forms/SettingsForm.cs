@@ -50,6 +50,12 @@ namespace lukys_spotdl.Forms
             startCommandPrompt("pip install spotdl --upgrade");
         }
 
+        private void btnGenerateConfig_Click(object sender, EventArgs e)
+        {
+            GenerateConfigForm generateConfigForm = new GenerateConfigForm();
+            generateConfigForm.ShowDialog();
+        }
+
         //--Misc Methods
         private void validateConfig()
         {
