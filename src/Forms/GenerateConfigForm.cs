@@ -59,7 +59,7 @@ namespace lukys_spotdl.Forms
                         //--Create a new Playlist
                         Playlist tmpPlaylist = new Playlist()
                         {
-                            index = playlistIndex++,
+                            index = playlistIndex += 1,
                             creationDate = DateTime.Now,
                             playlistFolderPath = fileName,
                             playlistName = playlistName,
@@ -70,12 +70,12 @@ namespace lukys_spotdl.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Keine Datei gefunden", "Keine Datei gefunden", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No playlist file found for spotdl. Make sure that there is a sync file from spotdl in the selected folder.", "No Sync-File found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Unexpected Error", "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error reading the specified folder", "Error reading the specified folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -109,7 +109,8 @@ namespace lukys_spotdl.Forms
             }
             catch (Exception)
             {
-                txbSpotifyUrl.BackColor = Color.Red;
+                if (txbSpotifyUrl.Text != "")
+                    txbSpotifyUrl.BackColor = Color.Red;
             }
         }
 
@@ -134,7 +135,7 @@ namespace lukys_spotdl.Forms
                     //--Check if config-File exsists
                     if (File.Exists(configName))
                     {
-                        MessageBox.Show("Fehler beim Schreiben der Config", "Fehler beim Schreiben der Config");
+                        MessageBox.Show("Make sure that the file name and file path are entered correctly. Also make sure that you have write authorisation for the desired path.", "Error writing the config");
                     }
                     else
                     {

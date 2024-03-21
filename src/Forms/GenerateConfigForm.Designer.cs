@@ -51,6 +51,7 @@
             // 
             // txbFolderPath
             // 
+            txbFolderPath.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txbFolderPath.Location = new Point(10, 25);
             txbFolderPath.Name = "txbFolderPath";
             txbFolderPath.ReadOnly = true;
@@ -70,6 +71,7 @@
             // 
             // btnAddToConfig
             // 
+            btnAddToConfig.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnAddToConfig.Location = new Point(10, 145);
             btnAddToConfig.Name = "btnAddToConfig";
             btnAddToConfig.Size = new Size(480, 25);
@@ -101,6 +103,7 @@
             // 
             // txbPlaylistName
             // 
+            txbPlaylistName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txbPlaylistName.Location = new Point(10, 70);
             txbPlaylistName.Name = "txbPlaylistName";
             txbPlaylistName.Size = new Size(480, 23);
@@ -118,6 +121,7 @@
             // 
             // txbSpotifyUrl
             // 
+            txbSpotifyUrl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txbSpotifyUrl.Location = new Point(10, 115);
             txbSpotifyUrl.Name = "txbSpotifyUrl";
             txbSpotifyUrl.Size = new Size(480, 23);
@@ -151,7 +155,7 @@
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "GenerateConfigForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "GenerateConfigForm";
+            Text = "Generate Config";
             ResumeLayout(false);
             PerformLayout();
         }
