@@ -46,27 +46,29 @@ namespace lukys_spotdl.Forms
             {
                 try
                 {
+                    //--Search in the selected Folder for the spotdl-sync-file.
                     string[] files = Directory.GetFiles(folderPath, "*.sync.spotdl");
 
                     if (files.Length == 1)
                     {
                         //--Get FileName (Path + Name)
-                        string fileName = files[0];
-
-                        //--Add Item to the ListBox
-                        listBoxConfig.Items.Add(fileName);
+                        string fileName = cutStart(files[0], folderPath + "\\");
 
                         //--Create a new Playlist
                         Playlist tmpPlaylist = new Playlist()
                         {
                             index = playlistIndex += 1,
                             creationDate = DateTime.Now,
-                            playlistFolderPath = fileName,
-                            playlistName = playlistName,
+                            playlistFolderPath = folderPath,
+                            playlistName = fileName.Split('.')[0],
                             playlistSpotifyUrl = spotifyUrl,
                         };
 
+                        //--Add Playlist to List
                         playlistManager.playlist_list.Add(tmpPlaylist);
+
+                        //--Add Item to the ListBox (GUI)
+                        listBoxConfig.Items.Add(playlistIndex + ". " + folderPath);
                     }
                     else
                     {
@@ -135,7 +137,7 @@ namespace lukys_spotdl.Forms
                     //--Check if config-File exsists
                     if (File.Exists(configName))
                     {
-                        MessageBox.Show("Make sure that the file name and file path are entered correctly. Also make sure that you have write authorisation for the desired path.", "Error writing the config");
+                        MessageBox.Show("Make sure that the file name and file path are entered correctly. Also make sure that you have write authorisation for the desired path.", "Error writing the config", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -151,6 +153,20 @@ namespace lukys_spotdl.Forms
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// This Method cuts out a string from another strings beginning
+        /// </summary>
+        /// <param name="entireText">The entire Text</param>
+        /// <param name="cutText">The start-Part of the Text which you want to cut out</param>
+        /// <returns></returns>
+        private string cutStart(string entireText, string cutText)
+        {
+            if (entireText.StartsWith(cutText))
+                return entireText.Substring(cutText.Length);
+            else
+                return entireText;
         }
     }
 }

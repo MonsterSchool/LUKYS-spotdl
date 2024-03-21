@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateConfigForm));
             lblFolderPath = new Label();
             txbFolderPath = new TextBox();
             btnSelectFolder = new Button();
@@ -153,6 +154,7 @@
             Controls.Add(txbFolderPath);
             Controls.Add(lblFolderPath);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "GenerateConfigForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Generate Config";
