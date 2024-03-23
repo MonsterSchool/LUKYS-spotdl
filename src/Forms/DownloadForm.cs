@@ -188,6 +188,12 @@ namespace lukys_spotdl.Forms
 
         private void startCommandPrompt()
         {
+            //--Check the folderPath and adjust if it contains whitespace
+            if (folderPath.Any(Char.IsWhiteSpace))
+            {
+                folderPath = "\"" + folderPath + "\"";
+            }
+
             Process cmd = new Process();
             cmd.StartInfo.FileName = "cmd.exe";
             cmd.StartInfo.RedirectStandardInput = true;
